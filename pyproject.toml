@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "poetry-project"
+version = "0.1.0"
+description = ""
+authors = ["Anthony Mugendi <ngurumugz@gmail.com>"]
+readme = "README.md"
+packages = [{include = "poetry_project"}]
+#https://github.com/python-poetry/poetry/blob/master/pyproject.toml
+#https://gist.github.com/nazrulworld/3800c84e28dc464b2b30cec8bc1287fc
+classifiers=[]
+keywords=[]
+maintainers=[]
+#license="MIT"
+#homepage="https://docs/"
+#repository="https://repo/"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.3.2"
+flake8 = "^6.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+isort = "^5.12.0"
+pre-commit = "^3.3.3"
+
+
+[tool.poetry.group.doc.dependencies]
+mkdocs = "^1.4.3"
+mkdocstrings = "^0.22.0"
+mkdocstrings-python = "^1.1.2"
+mkdocs-ansible = "^0.1.6"
+markdown-include = "^0.8.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.env
+  | venv
+  | env
+  | _build
+  | buck-out
+  | build
+  | dist
+  | docs
+)/
+'''
+line-length = 90
+
+
+[tool.isort]
+profile = "black"
